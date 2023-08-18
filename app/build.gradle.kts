@@ -19,6 +19,7 @@ repositories {
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
 
     // This dependency is used by the application.
     implementation("org.springframework:spring-context:6.0.11")
@@ -35,3 +36,8 @@ application {
     // Define the main class for the application.
     mainClass.set("com.devmind.gradle.MyApplication")
 }
+
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
+
